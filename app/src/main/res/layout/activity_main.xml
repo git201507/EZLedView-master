@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context="com.goyourfly.ezledview.app.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Led Type" />
+
+        <RadioGroup
+            android:id="@+id/led_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Image" />
+
+            <RadioButton
+                android:id="@+id/rb_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Text" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Point Type" />
+
+        <RadioGroup
+            android:id="@+id/point_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Circle" />
+
+            <RadioButton
+                android:id="@+id/rb_square"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Square" />
+
+            <RadioButton
+                android:id="@+id/rb_drawable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CustomDrawable" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Led Size" />
+
+        <SeekBar
+            android:id="@+id/seekbarCircle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:max="50" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Led Space" />
+
+        <SeekBar
+            android:id="@+id/seekbarSpace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:max="50" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Text Szie" />
+
+        <SeekBar
+            android:id="@+id/seekbarTextSize"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:max="1000" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom">
+
+        <com.goyourfly.ezledview.EZLedView
+            android:id="@+id/ledView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            app:image="@drawable/simpson"
+            app:led_color="@color/colorAccent"
+            app:text_size="180dp" />
+    </HorizontalScrollView>
+</RelativeLayout>
