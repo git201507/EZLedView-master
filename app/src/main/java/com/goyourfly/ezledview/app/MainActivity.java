@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RadioGroup;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ledView = (EZLedView) findViewById(R.id.ledView);
 
+
+        /**控制点的大小*/
         SeekBar circleRadius = (SeekBar) findViewById(R.id.seekbarCircle);
         circleRadius.setProgress(ledView.getLedRadius());
         circleRadius.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 ledView.setLedRadius(progress);
                 ledView.invalidate();
+                Log.i("点的大小", "-----------" + progress);
             }
 
             @Override
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /**控制点的空隙*/
         SeekBar ledSpace = (SeekBar) findViewById(R.id.seekbarSpace);
         ledSpace.setProgress(ledView.getLedSpace());
         ledSpace.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -49,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 ledView.setLedSpace(progress);
                 ledView.invalidate();
+                Log.i("点的空隙", "-----------" + progress);
             }
 
             @Override
@@ -62,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /**文字大小*/
         SeekBar textSize = (SeekBar) findViewById(R.id.seekbarTextSize);
         textSize.setProgress(ledView.getLedTextSize());
         textSize.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -83,18 +90,19 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-//
+
+        /**显示文字还是图片*/
         setRadioCheckListener(R.id.led_type, new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (checkedId == R.id.rb_text) {
-                    ledView.setText("HELLO, I LOVE U VERY MUCH!!!");
+                    ledView.setText("123456789");
                 } else {
                     ledView.setDrawable(getResources().getDrawable(R.drawable.simpson));
                 }
             }
         });
-//
+        /**切换led点的类型*/
         setRadioCheckListener(R.id.point_type, new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {

@@ -166,7 +166,7 @@ public class EZLedView extends View {
             if (customLedLightDrawable == null)
                 throw new RuntimeException("Drawable type need you set a image");
         }
-
+        //设置显示类型  文字还是图片
         contentType = attributes.getString(R.styleable.EZLedView_content_type);
         if (TextUtils.isEmpty(contentType)) {
             contentType = CONTENT_TYPE_TEXT;
@@ -207,6 +207,7 @@ public class EZLedView extends View {
         int w;
         int h;
 
+        //设置边距
         final int pleft = mPaddingLeft;
         final int pright = mPaddingRight;
         final int ptop = mPaddingTop;

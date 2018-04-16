@@ -17,8 +17,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:led_color="#3effe8"
-            app:text="EZLedView is cool!"
-            app:text_size="400sp" />
+            app:text_size="400sp"
+            app:text="1321"
+            app:led_color="@color/colorAccent"
+            />
     </FrameLayout>
 </HorizontalScrollView>
